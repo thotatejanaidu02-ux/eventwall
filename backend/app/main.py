@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
-from app.routes import auth, events, devices
+from app.routes import auth, events, devices, sync
 from app.database import engine
 from app.models import Base
 
@@ -28,6 +28,7 @@ Base.metadata.create_all(bind=engine)
 app.include_router(auth.router)
 app.include_router(events.router)
 app.include_router(devices.router)
+app.include_router(sync.router)
 
 @app.get("/")
 def read_root():
