@@ -1,2 +1,2 @@
 # Routes init file
-from . import auth, events, devices
+from . import auth, events, devices, sync
